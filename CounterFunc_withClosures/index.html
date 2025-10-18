@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator using Counter Functions with Closures</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+
+        <!-- Clear button -->
+        <div class="clrBtn">
+            <button class="clear" onclick="clearDisplay()">C</button>
+        </div>
+
+        <!-- Numbers and operators -->
+        <div class="btns">
+            <!-- Row 1 -->
+            <button onclick="appendNum('7')">7</button>
+            <button onclick="appendNum('8')">8</button>
+            <button onclick="appendNum('9')">9</button>
+            <button class="operator" onclick="setOperation('÷')">÷</button>
+
+            <!-- Row 2 -->
+            <button onclick="appendNum('4')">4</button>
+            <button onclick="appendNum('5')">5</button>
+            <button onclick="appendNum('6')">6</button>
+            <button class="operator" onclick="setOperation('×')">×</button>
+
+            <!-- Row 3 -->
+            <button onclick="appendNum('1')">1</button>
+            <button onclick="appendNum('2')">2</button>
+            <button onclick="appendNum('3')">3</button>
+            <button class="operator" onclick="setOperation('-')">-</button>
+
+            <!-- Row 4 -->
+            <button onclick="appendNum('0')">0</button>
+            <button onclick="appendDec()">.</button>
+            <button class="equal" onclick="calculate()">=</button>
+            <button class="operator" onclick="setOperation('+')">+</button>
+        </div>
+
+        <div id="count">Calculation count: 0</div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
