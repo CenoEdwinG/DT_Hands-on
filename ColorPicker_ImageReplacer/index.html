@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BG Color & ¶ Color Picker | <div> Text Changer | Image Replacer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>BG Color & ¶ Color Picker | div Text Changer | Image Replacer</h1>
+
+    <!-- Background Color Picker -->
+    <label for="bgColorPicker">Pick Background Color:</label>
+    <input type="color" id="bgColorPicker">
+    
+    <!-- Paragraph -->
+    <p id="myParagraph">This is a paragraph. Change its color using the color picker below.</p>
+    <label for="textColorPicker">Pick Paragraph Text Color:</label>
+    <input type="color" id="textColorPicker">
+
+    <!-- Div with text -->
+    <div id="myDiv">Click the button to change this div's text.</div>
+    <button onclick="changeDivText()">Change Div Text</button>
+    <br>
+
+    <!-- Image and Button -->
+    <img id="myImage" src="/ColorPicker_ImageReplacer/baseformGoku.png" alt="BaseFormGoku">
+    <button onclick="replaceImage()">Replace Image</button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+
+</body>
+</html>
