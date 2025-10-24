@@ -1,0 +1,35 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  background-color: #a0a0a0;
+}
+
+.counter-container {
+  background: whitesmoke;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0);
+  text-align: center;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+span {
+  font-weight: bold;
+  color: blue;
+}
