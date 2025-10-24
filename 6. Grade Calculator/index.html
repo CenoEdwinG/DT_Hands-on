@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grade Calculator</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 8px;
+            background-color: white;
+        }
+        h2 {
+            text-align: center;
+            color: black;
+        }
+        label {
+            display: block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: lightblue;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        #result.pass {
+            color: green
+        }
+        #result.fail {
+            color: red;
+        }
+        </style>
+
+</head>
+<body>
+    <h2>Grade Calculator</h2>
+    <label>Project: <input type="number" id="project" min="0" max="100" placeholder="Enter 0 - 100" /></label><br />
+    <label>Quiz: <input type="number" id="quiz" min="0" max="100" placeholder="Enter 0 - 100" /></label><br />
+    <label>Midterm: <input type="number" id="midterm" min="0" max="100" placeholder="Enter 0 - 100" /></label><br />
+    <label>Finals: <input type="number" id="finals" min="0" max="100" placeholder="Enter 0 - 100" /></label><br />
+    <label>Activities: <input type="number" id="activities" min="0" max="100" placeholder="Enter 0 - 100" /></label><br />
+    <button onclick="calculateGrade()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateGrade() {
+            const project = document.getElementById("project").value;
+            const quiz = document.getElementById("quiz").value;
+            const midterm = document.getElementById("midterm").value;
+            const finals = document.getElementById("finals").value;
+            const activities = document.getElementById("activities").value;
+
+            const resultingGrade = (project * 0.25) + (quiz * 0.15) + (midterm * 0.25) + (finals * 0.25) + (activities * 0.10);
+
+            const resultP = document.getElementById("result");
+            resultP.textContent = "Your grade is: " + resultingGrade.toFixed(2) + "% >>> ";
+                if (resultingGrade >= 75) {
+                    resultP.textContent += "Passed";
+                    resultP.className = "pass";
+                } else {
+                    resultP.textContent += "Failed";
+                    resultP.className = "fail";
+                }
+        }
+    </script>
+</body>
+</html>

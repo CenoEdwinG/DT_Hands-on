@@ -1,0 +1,69 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #a0a0a0;
+}
+
+.calculator {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0);
+    padding: 20px;
+    width: 300px;
+}
+
+#display {
+    width: 278px;
+    height: 50px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: right;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.btns, .clrBtn {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    padding: 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: silver;
+    transition: background-color 0.1s;
+}
+
+button:hover {
+    background-color: lightsteelblue;
+}
+
+.operator {
+    background-color: orange;
+}
+
+.equal {
+    background-color: lightseagreen;
+    color: white;
+}
+
+.clear {
+    background-color: red;
+    color: white;
+    margin-bottom: 10px;
+}
+
+#count {
+    margin-top: 15px;
+    font-size: 1rem;
+    text-align: right;
+    color: black;
+}

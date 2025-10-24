@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            background: #a0a0a0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .converter {
+            background: red;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        .converter:hover {
+            background: lightblue;
+        }
+
+        .converter h2 {
+            margin-bottom: 20px;
+            color: orange;
+        }
+
+        .converter input {
+            width: 92.5%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .converter select, .converter button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .converter input, .converter select, .converter button {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center
+        }
+
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <h2>Temperature Converter</h2>
+        <input type="number" id="temperature" placeholder="Enter temperature:" />
+        
+        <select id="conversionType">
+            <option value="CtoF">°C to °F</option>
+            <option value="FtoC">°F to °C</option>
+        </select>
+        
+        <button onclick="convertTemp()">Convert</button>
+        
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function convertTemp() {
+            const temp = parseFloat(document.getElementById("temperature").value);
+            const type = document.getElementById("conversionType").value;
+            const resultDiv = document.getElementById("result");
+
+            if (isNaN(temp)) {
+                resultDiv.textContent = "Please enter temperature.";
+                return;
+            }
+
+            let result;
+            if (type === "CtoF") {
+                result = (temp * 9/5) + 32;
+                resultDiv.textContent = `${temp}°C = ${result.toFixed(2)}°F`;
+            } else {
+                result = (temp - 32) * 5/9;
+                resultDiv.textContent = `${temp}°F = ${result.toFixed(2)}°C`;
+            }
+        }
+    </script>
+</body>
+</html>

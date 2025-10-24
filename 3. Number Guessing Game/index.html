@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace
+            text-align: center;
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #f0f0f0;
+        }
+        p {
+            font-size: 18px;
+        }
+        input {
+            padding: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 5px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result, #result.found, #result.not-found {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #result.found {
+            color: green;
+        }
+        #result.not-found {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Number Guessing Game</h1>
+    <p>Enter a number:</p>
+    <input type="number" id="numberInput" placeholder="Enter a number:" />
+    <button onclick="checkNumber()">Check</button>
+    <div class="result" id="result"></div>
+
+<script>
+    const numberData = [3, 7, 15, 23, 42, 56, 78, 91]; // Sample data array
+    function checkNumber() { // Function checking if the entered number is in the array
+        const userInput = Number(document.getElementById("numberInput").value); // Get user input and convert it to number
+        const resultDiv = document.getElementById("result");
+        if (userInput == "") { // Check if the input is valid
+            resultDiv.innerHTML = "Please enter a number!";
+            return;
+        }
+        const index = numberData.indexOf(userInput); // Check if the number exists in the sample data array
+        if (index !== -1) {
+            resultDiv.innerHTML = "Number located at data index: " + index; // Display the data index if number is found
+            resultDiv.className = "found"; // Add class for specified styling
+        }
+        else {
+            resultDiv.innerHTML = "Number not in data"; // Display message if number is not found in the array
+            resultDiv.className = "not-found"; // Add class for specified styling
+        }
+    }
+</script>
+</body>
+</html>
