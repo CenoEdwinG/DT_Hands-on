@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Buggy Calculator</title>
+  </head>
+  <body>
+    <h2>🧮 Simple Calculator</h2>
+
+    <input id="num1" placeholder="Enter first number" />
+    <input id="num2" placeholder="Enter second number" />
+
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+      function calculate() {
+        const num1 = parseFloat(document.getElementById("num1").value); // number input as DOM elements, are strings converted to float
+        const num2 = parseFloat(document.getElementById("num2").value); // number input as DOM elements, are strings converted to float
+        const operator = document.getElementById("operator").value;
+
+        try {
+          if (isNaN(num1) || isNaN(num2)) {
+            throw new Error("Please enter valid numbers."); // validate if input are numbers
+          }
+
+          switch (
+            operator // switch-case to handle different operations, instead of if-else
+          ) {
+            case "+":
+              result = num1 + num2;
+              break;
+            case "-":
+              result = num1 - num2;
+              break;
+            case "*":
+              result = num1 * num2;
+              break;
+            case "/":
+              if (num2 === 0) throw new Error("Division by zero!");
+              result = num1 / num2;
+              break;
+          }
+
+          document.getElementById("result").innerText = "Result: " + result;
+        } catch (err) {
+          document.getElementById("result").innerText = "Error: " + err.message;
+        }
+      }
+    </script>
+  </body>
+</html>
