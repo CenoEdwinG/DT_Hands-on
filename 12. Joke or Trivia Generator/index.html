@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joke & Trivia Generator</title>
+  </head>
+  <body>
+    <h1>Joke & Trivia Generator</h1>
+
+    <button onclick="getJoke()">Get a Joke</button>
+    <button onclick="getTrivia()">Get Trivia</button>
+
+    <p id="output">Click a button to get a joke or trivia!</p>
+
+    <script>
+      // Get a joke from JokeAPI
+      async function getJoke() {
+        const output = document.getElementById("output");
+        output.textContent = "Loading joke...";
+
+        try {
+          const res = await fetch("https://v2.jokeapi.dev/joke/Any");
+          const data = await res.json();
+
+          if (data.type === "single") {
+            output.textContent = data.joke;
+          } else {
+            output.innerHTML = `${data.setup} <br> ${data.delivery}`;
+          }
+        } catch (error) {
+          output.textContent = "Error fetching joke 😢";
+        }
+      }
+
+      // Get trivia from Open Trivia DB
+      async function getTrivia() {
+        const output = document.getElementById("output");
+        output.textContent = "Loading trivia...";
+
+        try {
+          const res = await fetch("https://opentdb.com/api.php?amount=1");
+          const data = await res.json();
+          const trivia = data.results[0];
+
+          output.innerHTML = `
+          <strong>Category:</strong> ${trivia.category} <br>
+          <strong>Question:</strong> ${trivia.question} <br>
+          <strong>Answer:</strong> ${trivia.correct_answer}
+        `;
+        } catch (error) {
+          output.textContent = "Error fetching trivia 😢";
+        }
+      }
+    </script>
+  </body>
+</html>
